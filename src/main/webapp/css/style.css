@@ -1,0 +1,30 @@
+@charset "UTF-8";
+div.contentsbar {
+	background-color: pink;
+	font-weight: bold;
+	font-size: 20px;
+	border: 1px solid black;
+}
+div div{
+	text-align: center;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+    resize: none;
+}
+h1{
+	text-align: center;
+	color : green;
+}
+div.reserve{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.reserve img{
+	width:50%
+}
+div.reserveBody{
+	width:50%
+}
