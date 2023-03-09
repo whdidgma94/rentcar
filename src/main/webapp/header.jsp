@@ -9,9 +9,9 @@
 <title>렌트카</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-
 <header>
 <div class="nav justify-content-between"> 
 <div> <img alt="로고" src="${ctx}/img/rent_logo.jpg" width="200" height="200"> </div>

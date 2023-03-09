@@ -11,7 +11,14 @@ public class ReserveVO {
 	private int usenavi;
 	private int useseat;
 	private int carNo;
+	private int price;
 	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public int getNum() {
 		return num;
 	}

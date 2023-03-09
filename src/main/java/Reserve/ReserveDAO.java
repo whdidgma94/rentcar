@@ -44,7 +44,7 @@ public class ReserveDAO {
 	}
 	
 	public void addReserve(ReserveVO vo) {
-		String sql = "insert into carreserve(id, qty, dday, rday, usein, usewifi, usenavi, useseat,carNo) values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into carreserve(id, qty, dday, rday, usein, usewifi, usenavi, useseat,carNo,price) values(?,?,?,?,?,?,?,?,?,?)";
 		getConnect();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -57,6 +57,21 @@ public class ReserveDAO {
 			ps.setInt(7, vo.getUsenavi());
 			ps.setInt(8, vo.getUseseat());
 			ps.setInt(9, vo.getCarNo());
+			ps.setInt(10, vo.getPrice());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+	}
+	
+	public void removeReserve(int num) {
+		String sql = "delete from carreserve where num=?";
+		getConnect();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, num);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,6 +89,7 @@ public class ReserveDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				ReserveVO b = new ReserveVO();
+				b.setNum(rs.getInt("num"));
 				b.setId(rs.getString("id"));
 				b.setQty(rs.getInt("qty"));
 				b.setDday(rs.getInt("dday"));
@@ -83,6 +99,7 @@ public class ReserveDAO {
 				b.setUsenavi(rs.getInt("usenavi"));
 				b.setUseseat(rs.getInt("useseat"));
 				b.setCarNo(rs.getInt("carNo"));
+				b.setPrice(rs.getInt("price"));
 				list.add(b);
 			}
 		} catch (Exception e) {

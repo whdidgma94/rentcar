@@ -1,9 +1,10 @@
 @charset "UTF-8";
 div.contentsbar {
-	background-color: pink;
+	background-color: gray;
 	font-weight: bold;
 	font-size: 20px;
 	border: 1px solid black;
+	color : white;
 }
 div div{
 	text-align: center;
@@ -15,7 +16,7 @@ textarea {
 }
 h1{
 	text-align: center;
-	color : green;
+	color : gray;
 }
 div.reserve{
 	display: flex;

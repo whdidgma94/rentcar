@@ -14,6 +14,7 @@ import controller.MemberLogoutController;
 import controller.RentController;
 import controller.ReserveAddController;
 import controller.ReserveController;
+import controller.ReserveRemoveController;
 
 
 public class HandlerMapping {
@@ -32,6 +33,7 @@ public class HandlerMapping {
 		  mappings.put("/reserve.do", new ReserveController());
 		  mappings.put("/checkRent.do", new CheckRentController());
 		  mappings.put("/reserveAdd.do", new ReserveAddController());
+		  mappings.put("/reserveRemove.do", new ReserveRemoveController());
 	 }
 	 public Controller getController(String key) { 
 		  return mappings.get(key);

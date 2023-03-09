@@ -65,8 +65,34 @@ public class CarDAO {
 		}
 		return null;
 	}
-	
-	
+	public void carused(String name,int qty) {
+		String SQL = "update rentcar set usepeople = usepeople-? where name = ?";
+		getConnect();
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, qty);
+			ps.setString(2, name);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+	}
+	public void cancleReserve(int carNo,int qty) {
+		String SQL = "update rentcar set usepeople = usepeople+? where no = ?";
+		getConnect();
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, qty);
+			ps.setInt(2, carNo);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+	}
 	
 	public void dbClose() {
 		  try { 
