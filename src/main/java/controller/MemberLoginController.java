@@ -16,18 +16,19 @@ public class MemberLoginController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		if(request.getParameter("id")==null) {
-			return "memberLogin";
-		}	
-		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		if(id==null) {
+			return "memberLogin";
+		}
 		if(MemberDAO.getInstance().memberLogin(id,pw)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("log", id);
-			return "_main";
+			response.getWriter().print(1);
+			return null;
 		}else {
-			return "memberLogin";
+			response.getWriter().print(0);
+			return null;
 		}
 	}
 

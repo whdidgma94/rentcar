@@ -51,23 +51,23 @@
 </div>
 </div>
 <script>
+
 	let total = 0;
 	let multiple1 = 1;
 	let multiple2 = 1;
 	let addCnt=0;
 	let carPrice = ${car.price};
 	
-	window.addEventListener("load",totalPrice());
+	window.addEventListener("load",()=>{
+		totalPrice();
+		setRday();
+	});
+		
+	function setRday(){
+    	var now = new Date().toISOString().substring(0, 10);
+    	document.getElementById("today").setAttribute("min", now);
+	}
 	
-    var now = new Date();
-    $("input[name=rday]").change(function() {
-        var date = new Date($(this).val());
-        if (date <= now) {
-            alert("이전 날짜는 선택할 수 없습니다.");
-            $(this).attr("value", null);
-            history.go(0);
-        }
-    })
 	
 	function multi1(value) {
 		multiple1=value;
@@ -75,6 +75,7 @@
 	}
 	function multi2(value) {	
 		multiple2=value;
+		console.log($("input[name=rday]").val());
 		totalPrice();
 	}
 	function addFn(value) {	
@@ -92,13 +93,20 @@
 	
 	function reserveBtn() {
 		if($("input[name=rday]").val()==""){
-			alert("대여일을 입력해주세요");
-			history.go(0);
+			swal('입력 오류','대여일을 선택해주세요','error')
+			.then(function(){
+				history.go(0);
+			});
 		}else if(${car.usepeople}<$("select[name=qty]").val()){
-			alert("해당차량 재고가 부족합니다");
-			history.go(0);
+			swal('재고 부족','해당차량의 재고가 부족합니다','error')
+			.then(function(){
+				history.go(0);
+			});
 		}else{
-			$("#form").submit();
+			swal('예약 완료','예약이 완료 되었습니다','success')
+			.then(function(){
+				$("#form").submit();
+			});
 		}
 	}
 </script>

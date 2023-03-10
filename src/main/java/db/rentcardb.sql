@@ -60,7 +60,7 @@ INSERT INTO member VALUES ('asdf', '1234', 'qwer@naver.com', '010-2343-2444', '�
 select * from member;
 
 -- rentercar 데이터 삽입
-INSERT INTO rentcar VALUES (1, '아반떼', 1,  2000, 4, '기아', '1.jpg' , '아반테 자동차 입니다.');
+INSERT INTO rentcar VALUES (1, '아반떼', 1,  2000, 4, '현대', '1.jpg' , '아반떼 자동차 입니다.');
 INSERT INTO rentcar VALUES (2, 'BMW', 3,  6000, 4, 'BMW', '2.jpg' , 'BMW 자동차 입니다.');
 INSERT INTO rentcar VALUES (3, '카니발', 1,  4000, 7, '기아', '3.jpg' , '카니발 자동차 입니다.');
 INSERT INTO rentcar VALUES (4, '카렌스', 2,  2500, 4, '기아', '4.jpg' , '카렌스 자동차 입니다.');

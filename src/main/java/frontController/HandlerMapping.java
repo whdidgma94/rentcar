@@ -1,6 +1,9 @@
 package frontController;
 
 import java.util.HashMap;
+
+import controller.AdminMemberController;
+import controller.AdminMemberDeleteController;
 import controller.BoardAddController;
 import controller.BoardDeleteController;
 import controller.BoardListController;
@@ -8,9 +11,12 @@ import controller.BoardMainController;
 import controller.BoardViewController;
 import controller.CheckRentController;
 import controller.Controller;
+import controller.MainController;
+import controller.MemberIdConfirmController;
 import controller.MemberJoinController;
 import controller.MemberLoginController;
 import controller.MemberLogoutController;
+import controller.MemberProfileController;
 import controller.RentController;
 import controller.ReserveAddController;
 import controller.ReserveController;
@@ -34,6 +40,11 @@ public class HandlerMapping {
 		  mappings.put("/checkRent.do", new CheckRentController());
 		  mappings.put("/reserveAdd.do", new ReserveAddController());
 		  mappings.put("/reserveRemove.do", new ReserveRemoveController());
+		  mappings.put("/memberIdConfirm.do", new MemberIdConfirmController());
+		  mappings.put("/_main.do", new MainController());
+		  mappings.put("/adminMember.do", new AdminMemberController());
+		  mappings.put("/adminMemberDelete.do", new AdminMemberDeleteController());
+		  mappings.put("/memberProfile.do", new MemberProfileController());
 	 }
 	 public Controller getController(String key) { 
 		  return mappings.get(key);

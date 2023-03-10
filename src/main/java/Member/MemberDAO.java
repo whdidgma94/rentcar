@@ -29,7 +29,25 @@ public class MemberDAO {
 		   } catch (Exception e) {
 			  e.printStackTrace();
 		  }		   
-	}   
+	}
+	
+	public int removeMemberVO(String id) {
+		String sql = "delete from member where id=?";
+		getConnect();
+		int check = -1;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			check = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return check;
+	}
+	
+	
 	public int addMemberVO(MemberVO vo) {
 		String sql = "insert into member(id, pw, name, age, email, phone, gender) values(?,?,?,?,?,?,?)";
 		getConnect();
@@ -73,6 +91,31 @@ public class MemberDAO {
 		return false;
 	}
 	
+	public MemberVO getAMember(String id) {
+		String SQL = "select * from member where id = ?";
+		getConnect();
+		MemberVO member = new MemberVO();
+		try {
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {			
+				member.setId(rs.getString("id"));
+				member.setPw(rs.getString("pw"));
+				member.setName(rs.getString("name"));
+				member.setAge(rs.getInt("age"));
+				member.setEmail(rs.getString("email"));
+				member.setPhone(rs.getString("phone"));
+				member.setGender(rs.getString("gender"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return member;
+	}
+	
 	public ArrayList<MemberVO> getMemberList() {
 		String SQL = "select * from member";
 		getConnect();
@@ -107,5 +150,21 @@ public class MemberDAO {
 		  }catch(Exception e) {
 			  e.printStackTrace();
 		  }
-	}   
+	}
+	public int confirmId(String id) {
+		int x = 0;
+		getConnect();
+		try {
+			ps = conn.prepareStatement("select id from member where id = ?");
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if (rs.next())
+				x = 1;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return x;
+	}  
 }
