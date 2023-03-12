@@ -20,7 +20,7 @@ public class MemberDAO {
 	private ResultSet rs;
 	
 	public void getConnect() {
-		   String URL="jdbc:mysql://localhost:3307/rentcardb?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
+		   String URL="jdbc:mysql://localhost:3306/rentcardb?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
 		   String user="root";
 		   String password="root";
 		  try {

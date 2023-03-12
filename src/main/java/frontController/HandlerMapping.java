@@ -2,6 +2,9 @@ package frontController;
 
 import java.util.HashMap;
 
+import controller.AdminAddCarController;
+import controller.AdminImgUploadController;
+import controller.AdminInsertCarVOController;
 import controller.AdminMemberController;
 import controller.AdminMemberDeleteController;
 import controller.BoardAddController;
@@ -45,6 +48,9 @@ public class HandlerMapping {
 		  mappings.put("/adminMember.do", new AdminMemberController());
 		  mappings.put("/adminMemberDelete.do", new AdminMemberDeleteController());
 		  mappings.put("/memberProfile.do", new MemberProfileController());
+		  mappings.put("/adminAddCar.do", new AdminAddCarController());
+		  mappings.put("/adminImgUpload.do", new AdminImgUploadController());
+		  mappings.put("/adminInsertCarVO.do", new AdminInsertCarVOController());
 	 }
 	 public Controller getController(String key) { 
 		  return mappings.get(key);
